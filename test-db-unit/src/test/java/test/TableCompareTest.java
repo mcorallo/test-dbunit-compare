@@ -17,7 +17,7 @@ public class TableCompareTest {
 
 	@Test
 	public void testName() throws Exception {
-		String tableName = "dbo.NDG";
+		String tableName = "dbo.OBIETTIVO";
 
 		QueryDataSet db1 = getTableData(tableName, "SVILUPPO");
 		QueryDataSet db2 = getTableData(tableName, "REPORT");
