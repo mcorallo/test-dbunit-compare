@@ -4,7 +4,7 @@ pipeline {
     maven 'aaa'
   }
   stages {
-    stage('prom-app checkout') {
+    stage('all') {
       parallel {
         stage('prom-app') {
           stage('prom-app checkout') {
@@ -13,7 +13,7 @@ pipeline {
               git(credentialsId: 'gitlab-prom', url: 'git@wmpf-git.prometeia:progetti/prom-app.git', branch: 'develop')
             }
           }
-          stage('build') {
+          stage('prom-app build') {
             steps {
               sh 'mvn clean install -DskipTests'
             }
@@ -25,7 +25,7 @@ pipeline {
               git(url: 'git@wmpf-git.prometeia:progetti/PFPWeb28.git', branch: 'develop', credentialsId: 'gitlab-prom')
             }
           }
-          stage('build') {
+          stage('pfpweb28 build') {
             steps {
               sh 'mvn clean install -DskipTests'
             }
