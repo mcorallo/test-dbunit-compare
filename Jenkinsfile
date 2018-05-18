@@ -18,7 +18,7 @@ pipeline {
     }
     stage('tools') {
       steps {
-        tool(name: 'maven 3.5.3', type: 'maven')
+        tool(name: 'aaa', type: 'maven')
         tool 'jdk8'
       }
     }
