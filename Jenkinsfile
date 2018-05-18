@@ -2,8 +2,12 @@ pipeline {
   agent any
   stages {
     stage('build') {
+      agent any
       steps {
-        sh 'echo \'ciao\''
+        timeout(time: 10) {
+          sh 'echo \'ciao\''
+        }
+
       }
     }
   }
