@@ -1,21 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('build') {
+    stage('prom-app checkout') {
       agent any
       steps {
-        timeout(time: 10) {
-          retry(count: 2) {
-            sh 'echo \'ciao\''
-          }
-
-        }
-
-      }
-    }
-    stage('test') {
-      steps {
-        echo 'asdasda'
+        git(credentialsId: 'gitlab-prom', url: 'git@wmpf-git.prometeia:progetti/prom-app.git', branch: 'develop')
       }
     }
   }
