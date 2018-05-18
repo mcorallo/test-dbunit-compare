@@ -3,6 +3,9 @@ pipeline {
   tools {
     maven 'aaa'
   }
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '3', artifactNumToKeepStr: '3'))
+  }
   parameters {
     choice(choices: 'master\ndevelop', description: 'Which branch?', name: 'branch')
   }
