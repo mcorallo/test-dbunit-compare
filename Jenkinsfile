@@ -23,8 +23,8 @@ pipeline {
     }
     stage('initialize') {
       steps {
-        sh '''PATH = ${PATH}
-M2_HOME = ${M2_HOME}'''
+        sh '''echo "PATH = ${PATH}"
+echo "M2_HOME = ${M2_HOME}"'''
       }
     }
     stage('build') {
