@@ -5,9 +5,17 @@ pipeline {
       agent any
       steps {
         timeout(time: 10) {
-          sh 'echo \'ciao\''
+          retry(count: 2) {
+            sh 'echo \'ciao\''
+          }
+
         }
 
+      }
+    }
+    stage('test') {
+      steps {
+        echo 'asdasda'
       }
     }
   }
