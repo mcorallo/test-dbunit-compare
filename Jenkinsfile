@@ -16,7 +16,7 @@ pipeline {
         }
         stage('pfpweb28gui-checkout') {
           steps {
-            git(url: 'git@wmpf-git.prometeia:progetti/pftpro-gui-edr.git', branch: 'master', credentialsId: 'gitlab-prom')
+            git(url: 'git@wmpf-git.prometeia:progetti/pftpro-gui-edr.git', branch: 'master', credentialsId: 'gitlab-prom', poll: true, changelog: true)
           }
         }
       }
