@@ -16,14 +16,20 @@ pipeline {
         }
       }
     }
-    stage('') {
+    stage('error') {
       steps {
         tool(name: 'maven 3.5.3', type: 'maven')
       }
     }
-    stage('prom-app build') {
+    stage('initialize') {
       steps {
-        sh 'mvn -DskipTests clean install'
+        sh '''PATH = ${PATH}
+M2_HOME = ${M2_HOME}'''
+      }
+    }
+    stage('build') {
+      steps {
+        sh 'mvn clean install -DskipTests'
       }
     }
   }
