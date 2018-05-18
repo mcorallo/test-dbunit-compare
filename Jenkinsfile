@@ -19,6 +19,13 @@ pipeline {
         git(credentialsId: 'gitlab-prom', url: 'git@wmpf-git.prometeia:progetti/PFPWeb28.git', branch: "${params.branch}")
         sh 'mvn clean install -DskipTests'
       }
+    } 
+
+    stage('pfpweb28gui') {
+      steps {
+        git(credentialsId: 'gitlab-prom', url: 'git@wmpf-git.prometeia:progetti/pftpro-gui-edr.git', branch: 'master')
+        sh './build.sh'
+      }
     }         
   }
 }
