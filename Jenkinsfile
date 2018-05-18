@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  tools {
+    maven 'aaa'
+  }
   stages {
     stage('prom-app checkout') {
       parallel {
@@ -14,12 +17,6 @@ pipeline {
             git(url: 'git@wmpf-git.prometeia:progetti/PFPWeb28.git', branch: 'develop', credentialsId: 'gitlab-prom')
           }
         }
-      }
-    }
-    stage('tools') {
-      steps {
-        tool(name: 'aaa', type: 'maven')
-        tool 'jdk8'
       }
     }
     stage('initialize') {
