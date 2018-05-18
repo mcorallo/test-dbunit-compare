@@ -16,9 +16,10 @@ pipeline {
         }
       }
     }
-    stage('error') {
+    stage('tools') {
       steps {
         tool(name: 'maven 3.5.3', type: 'maven')
+        tool 'jdk8'
       }
     }
     stage('initialize') {
