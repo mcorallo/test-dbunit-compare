@@ -14,11 +14,16 @@ pipeline {
             git(url: 'git@wmpf-git.prometeia:progetti/PFPWeb28.git', branch: 'develop', credentialsId: 'gitlab-prom')
           }
         }
-        stage('pfpweb28gui-checkout') {
-          steps {
-            git(url: 'git@wmpf-git.prometeia:progetti/pftpro-gui-edr.git', branch: 'master', credentialsId: 'gitlab-prom', poll: true, changelog: true)
-          }
-        }
+      }
+    }
+    stage('') {
+      steps {
+        tool(name: 'maven 3.5.3', type: 'maven')
+      }
+    }
+    stage('prom-app build') {
+      steps {
+        sh 'mvn -DskipTests clean install'
       }
     }
   }
